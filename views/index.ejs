@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head lang="zh-CN">
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  	<meta >
+    <title>Kael的个人简历</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/meyer-reset/2.0/reset.css">
+    <link rel="stylesheet" href="/stylesheets/fullPage.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+     <div id="IM">
+		<div class="section">
+			<div class="indexBox">
+				<div class="filterText">
+					<div class="img">
+						<img src="/images/IM.jpg" alt="">
+					</div>
+					<h6>前端实习生求职简历</h6>
+					<h3>Hello I'M Kael</h3>
+
+					<p class="nextIcon"><i class="fa fa-angle-double-down" id="nextDown"></i></p>
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<div class="aboutBox">
+				<div class="filterText">
+					<h3>About Me</h3>
+					<div class="IMinfo">
+						<img src="./images/me.JPG" alt="">
+						<p class="IMname">马健</p>
+						<div class="baseInfo">
+						  <div class="title">
+						  	<span class="baseText">基本信息</span>
+						  </div>
+						  <div class="infoItemBox">
+						  	<div class="item">
+						  		<p class="itemTextBox"><i class="fa fa-mortar-board icons"></i>&nbsp;<span class="text">河南城建学院</span></p>
+						  	</div>
+						  	<div class="item">
+						  		<p class="itemTextBox"><i class="fa fa-flag-checkered icons"></i>&nbsp;&nbsp;<span class="text">计算机科学与技术</span></p>
+						  	</div>
+						  	
+						  	<div class="item">
+						  		<p class="itemTextBox"><i class="fa fa-phone icons"></i>&nbsp;&nbsp;<span class="text">13213832373</span></p>
+						  	</div>
+					       
+						  	<div class="item">
+						  		<p class="itemTextBox"><i class="fa fa-wechat icons"></i>&nbsp;&nbsp;<span class="text">13213832373</span></p>
+						  	</div>
+						  	<div class="item">
+						  		<p class="itemTextBox"><i class="fa fa-envelope-o icons"></i>&nbsp;&nbsp;<span class="text">13213832373@163.com</span></p>
+						  	</div>
+						  	 <div class="item">
+						  		<p class="itemTextBox"><i class="fa fa-map-marker icons"></i>&nbsp;&nbsp;<span class="text">河南 平顶山</span></p>
+						  	</div>
+						  	<div class="item">
+						  		<p class="itemTextBox"><i class="fa fa-home icons"></i>&nbsp;&nbsp;<span class="text"><a href="http://114.67.151.28">我的个人主页</a></span></p>
+						  	</div>
+						  	<div class="item">
+						  		<p class="itemTextBox"><i class="fa fa-github icons"></i>&nbsp;&nbsp;<span class="text"><a href="https://github.com/maliaomj">我的github</a></span></p>
+						  	</div>
+						  	<div class="clear"></div>
+
+						  	
+						  </div>
+						</div>
+						<div class="myselfIntroduce">
+							<h6 >自我介绍</h6>
+							<div class="introduction">
+								<span>
+									我是一个对理想有着执着追求的人，坚信是金子总会发光。大学毕业后的工作，让我在文案策划方面有了很大的提高，文笔流畅，熟悉传媒工作、广告学制作与设计等工作方面。为人热情，活泼，大方， 本人好学上进，诚信、敬业、责任心强，有强烈的团体精神，对工作认真积极，严谨负责。
+								</span>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<h3>第三屏</h3>
+		</div>
+		<div class="section">
+			<h3>第四屏</h3>
+			<p>这是最后一屏</p>
+		</div>
+	</div>
+
+
+  </body>
+  <script type="text/javascript" src="/javascripts/jquery.js"></script>
+  <script type="text/javascript" src="/javascripts/fullPage.js"></script>
+  <script type="text/javascript" src="/javascripts/main.js"></script>
+  <script>
+    $(function(){
+		$('#IM').fullpage();
+		$.fn.fullpage.moveSectionDown();
+		$('#nextDown').on('click',()=>{
+			$.fn.fullpage.moveSectionDown();
+		});
+	});
+
+  </script>
+</html>
