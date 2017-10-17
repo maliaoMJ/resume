@@ -72,7 +72,7 @@
 							<h6 >自我介绍</h6>
 							<div class="introduction">
 								<span>
-									我是一个对理想有着执着追求的人，坚信是金子总会发光。大学毕业后的工作，让我在文案策划方面有了很大的提高，文笔流畅，熟悉传媒工作、广告学制作与设计等工作方面。为人热情，活泼，大方， 本人好学上进，诚信、敬业、责任心强，有强烈的团体精神，对工作认真积极，严谨负责。
+									我是一个对理想有着执着追求的人，坚信是金子总会发光。大学毕业后的工作，让我在文案策划方面有了很大的提高，文笔流畅文笔流畅文笔流畅文笔流畅
 								</span>
 							</div>
 						</div>
@@ -82,7 +82,32 @@
 			</div>
 		</div>
 		<div class="section">
-			<h3>第三屏</h3>
+			<!-- 技能展示Skill -->
+			<div class="skillBox">
+				<div class="filterText">
+					<h3>
+						<span class="fa-stack fa-lg iconBox">
+						  <i class="fa fa-wrench"></i>
+						</span>
+						<p>专业技能</p>
+					</h3>
+					<div class="skillInfo">
+						<div class="front" id="front">
+		                  <!-- 图表 -->
+						</div>
+
+						<div class="introductionText">
+							<p class="text">
+								说明:除了上述以外,本人对angular,less,typescript,webpack等有一定的了解和使用,对nodejs和java有一定的了解,熟练使用express框架和Linux命令。
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<h3>第四屏</h3>
+			<p>这是最后一屏</p>
 		</div>
 		<div class="section">
 			<h3>第四屏</h3>
@@ -92,17 +117,74 @@
 
 
   </body>
+  <script type="text/javascript" src="/javascripts/echarts.js"></script>
   <script type="text/javascript" src="/javascripts/jquery.js"></script>
   <script type="text/javascript" src="/javascripts/fullPage.js"></script>
   <script type="text/javascript" src="/javascripts/main.js"></script>
   <script>
-    $(function(){
-		$('#IM').fullpage();
+   
+    $(document).ready(function(){
+    	 // 初始化fullpage.js
+    	$('#IM').fullpage();
 		$.fn.fullpage.moveSectionDown();
+		$.fn.fullpage.moveSectionDown();
+		// 首页点击按钮事件
 		$('#nextDown').on('click',()=>{
 			$.fn.fullpage.moveSectionDown();
 		});
-	});
-
+		// skills echarts 初始化
+		var frontChart = echarts.init($('#front')[0]);
+		// 指定图表的配置项和数据
+        var option = {
+			    title : {
+			        text: '前端技术汇总图',
+			        subtext: '做过大Demo或做过项目的技术',
+			        x:'center',
+			        textStyle:{
+			        	color:'white',
+			        },
+			        subtextStyle:{
+			        	color:'white'
+			        }
+			    },
+			    tooltip : {
+			        trigger: 'item',
+			        formatter: "{a} <br/>{b} : {c} ({d}%)"
+			    },
+			    legend: {
+			        x : 'center',
+			        y : 'bottom',
+			        textStyle:{
+			        	color:'white'
+			        },
+			        data:['HTML5','CSS','JS','jQuery','Ajax','BS','Vue','ReactNative']
+			    },
+			   
+			    calculable : true,
+			    series : [
+			        
+			        {
+			            name:'detail',
+			            type:'pie',
+			            radius : [30, 110],
+			            center : ['50%', '50%'],
+			            roseType : 'area',
+			            data:[
+			                {value:60, name:'HTML5'},
+			                {value:50, name:'CSS'},
+			                {value:50, name:'JS'},
+			                {value:35, name:'jQuery'},
+			                {value:40, name:'Ajax'},
+			                {value:35, name:'BS'},
+			                {value:30, name:'Vue'},
+			                {value:25, name:'ReactNative'}
+			            ]
+			        }
+			    ]
+			};
+        // 使用刚指定的配置项和数据显示图表。
+        frontChart.setOption(option);
+		
+    });
   </script>
 </html>
