@@ -4,6 +4,12 @@
   	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
   	<meta >
+  	<!-- UC强制全屏 -->
+	<meta name="full-screen" content="yes">
+	<!-- QQ强制全屏 -->
+	<meta name="x5-fullscreen" content="true">
+	<!-- IOS启用 WebApp 全屏模式 -->
+	<meta name="apple-mobile-web-app-capable" content="yes" />
     <title>Kael的个人简历</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/meyer-reset/2.0/reset.css">
     <link rel="stylesheet" href="/stylesheets/fullPage.css">
@@ -106,12 +112,55 @@
 			</div>
 		</div>
 		<div class="section">
-			<h3>第四屏</h3>
-			<p>这是最后一屏</p>
+			<div class="workBox">
+				<div class="filterText">
+					<h3>Experience</h3>
+					<h5>视频介绍</h5>
+					
+						<video   
+						>
+							<source src="./images/1.mp4" type="video/mp4">
+								您的游览器不支持Video
+						</video>
+					
+					<h5>工作经历</h5>
+					<div class="introductionText">
+						<p><span>工作类型:</span><span>实习兼职</span></p>
+						<p><span>公司机构:</span><span>广州点屏信息技术有限公司</span></p>
+						<p><span>工作时间:</span><span>2016.07-2016.09</span></p>
+						<p><span>工作职责:</span><span>
+							负责数据库数据的维护,对一些不符合实际的数据进行查询修改.期间在公司学到许多前端
+的知识(因为他们就坐在我对面^_^~)，同时也加深对团队合作工作进一步认识,学会团队协作。
+						</span></p>
+					</div>
+				
+						<p class="power" id="power">
+							Copyright ©2017 Powered By IM
+						</p>
+					
+				</div>
+			</div>
 		</div>
 		<div class="section">
-			<h3>第四屏</h3>
-			<p>这是最后一屏</p>
+			<div class="contactBox">
+				<div class="filterText">
+					<h3>Contact Me</h3>
+					<div class="inputBox">
+						<p class="emails">
+							<i class="fa fa-envelope-o">
+								
+							</i>
+                            <input type="text" placeholder="input your email address" autofocus="autofocus">
+						</p>
+						<p class="textarea">
+							<textarea id="message"
+                            placeholder="input your message or advice"
+							></textarea>
+						</p>
+						<p class="submitBtn"><i class="fa fa-send"></i>&nbsp;提交</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -126,19 +175,17 @@
     $(document).ready(function(){
     	 // 初始化fullpage.js
     	$('#IM').fullpage();
-		$.fn.fullpage.moveSectionDown();
-		$.fn.fullpage.moveSectionDown();
 		// 首页点击按钮事件
 		$('#nextDown').on('click',()=>{
 			$.fn.fullpage.moveSectionDown();
 		});
 		// skills echarts 初始化
-		var frontChart = echarts.init($('#front')[0]);
+		let frontChart = echarts.init($('#front')[0]);
 		// 指定图表的配置项和数据
-        var option = {
+        let option = {
 			    title : {
 			        text: '前端技术汇总图',
-			        subtext: '做过大Demo或做过项目的技术',
+			        subtext: '做过项目的技术',
 			        x:'center',
 			        textStyle:{
 			        	color:'white',
