@@ -17,6 +17,29 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+  	<div class="loadding">
+  		<div class="spinner">
+		  <div class="spinner-container container1">
+		    <div class="circle1"></div>
+		    <div class="circle2"></div>
+		    <div class="circle3"></div>
+		    <div class="circle4"></div>
+		  </div>
+		  <div class="spinner-container container2">
+		    <div class="circle1"></div>
+		    <div class="circle2"></div>
+		    <div class="circle3"></div>
+		    <div class="circle4"></div>
+		  </div>
+		  <div class="spinner-container container3">
+		    <div class="circle1"></div>
+		    <div class="circle2"></div>
+		    <div class="circle3"></div>
+		    <div class="circle4"></div>
+		  </div>
+		</div>
+		<p>资源正在加载中。。。</p>
+  	</div>
      <div id="IM">
 		<div class="section">
 			<div class="indexBox">
@@ -143,25 +166,19 @@
 		</div>
 		<div class="section">
 			<div class="contactBox">
-				<div class="filterText">
-					<h3>Contact Me</h3>
-					<div class="inputBox">
-						<p class="emails">
-							<i class="fa fa-envelope-o">
-								
-							</i>
-                            <input type="text" placeholder="input your email address" autofocus="autofocus">
-						</p>
-						<p class="textarea">
-							<textarea id="message"
-                            placeholder="input your message or advice"
-							></textarea>
-						</p>
-						<p class="submitBtn"><i class="fa fa-send"></i>&nbsp;提交</p>
-					</div>
-				</div>
-			</div>
-		</div>
+		      <h3>Contact Me</h3>
+		      <h5 class="textEmail">您的邮箱</h5>
+		      <p class="emailBox">
+		      	<i class="fa fa-envelope-o"></i>
+		      	<input type="text" id="emailContent" class="">
+		      </p>
+		      <h5 class="textArea">您的建议</h5>
+		      <p class="areaBox">
+		      	<textarea id="message"  cols="50" rows="10" value="" placeholder="your message or advice...."></textarea>
+		      </p>
+		      <p class="subBtn" id="subBtn"><i class="fa fa-send"></i>&nbsp;发送</p>
+		      
+		    </div>
 	</div>
 
 
@@ -173,8 +190,10 @@
   <script>
    
     $(document).ready(function(){
+    	  
     	 // 初始化fullpage.js
     	$('#IM').fullpage();
+  
 		// 首页点击按钮事件
 		$('#nextDown').on('click',()=>{
 			$.fn.fullpage.moveSectionDown();
@@ -231,6 +250,39 @@
 			};
         // 使用刚指定的配置项和数据显示图表。
         frontChart.setOption(option);
+        // 加载动画
+       
+        let imgs = $('img');
+        for(let i=0;i<imgs.length;i++){
+        	imgs[i].onerror=function(){
+        	
+        		alert('图片加载失败！');
+
+        	}
+        	imgs[i].onload=function(){
+        		if(i==imgs.length-1){
+                   //隐藏loadding动画
+    	           $('.loadding').eq(0).hide();
+        		}
+        	}
+        }
+        // 提交数据
+        let subBtn = $('#subBtn');
+        subBtn.on('click',()=>{
+        	// 获取表单数据
+        	let emailContent= $('#emailContent').val().toString();
+        	let message = $('#message').val().toString();
+        	if(emailContent==''||message==''||message==null||emailContent==null){
+              alert('提交内容不能为空！');
+        	}else{
+        	 	//ajax 提交到后台
+        	 	 
+        	}
+        	
+
+
+
+        });
 		
     });
   </script>
