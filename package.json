@@ -11,7 +11,11 @@
     "debug": "~2.6.3",
     "ejs": "~2.5.6",
     "express": "~4.15.2",
+    "express-session": "^1.15.6",
+    "md5": "^2.2.1",
+    "mongoose": "^4.12.3",
     "morgan": "~1.8.1",
-    "serve-favicon": "~2.4.2"
+    "serve-favicon": "~2.4.2",
+    "xss": "^0.3.4"
   }
 }

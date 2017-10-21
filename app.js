@@ -4,11 +4,30 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+require('./models/user.js');
+
+
+
+
+
+
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var apis = require('./routes/apis');
 
 var app = express();
+// 连接数据库
+const DATA_PATH ="mongodb://127.0.0.1:27017/resume"
+mongoose.connect(DATA_PATH);
+var db = mongoose.connection;
+// 连接数据库出错
+db.on('error',function(){
+  console.log('数据库连接出错！');
+})
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,11 +43,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/apis' , apis);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
+  // res.render('404');
   next(err);
 });
 
